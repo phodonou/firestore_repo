@@ -1,6 +1,6 @@
 # firestore_repo
 
-firestore_repo is a package that makes it easy to read and write Firestore Documents
+firestore_repo is a dart package that makes it easy to read and write Firestore Documents
 
 ## Overview
 
@@ -10,23 +10,50 @@ firestore_repo is a package that makes it easy to read and write Firestore Docum
 FirestoreRepo db = FirestoreRepo();
 
 //Read one document
-db.getInstance(collectionPath: 'users', docId: 'enbjnsj1n3j39');
+db.getInstance(
+collectionPath: 'users', 
+docId: 'enbjnsj1n3j39',
+);
 
 //Read Multiple documents from a collection
-db.getInstanceAsLis5(collectionPath: 'users');
+db.getInstanceAsList(collectionPath: 'users');
 
 //write one document
 db.setInstance(
 collectionPath: 'users', 
 docId: 'enbjnsj1n3j39', 
-data: {'name': 'Prince'},
+data: {'name': 'Prince',
+});
+
+//write one document, auto-generates id
+db.setInstanceNoID(
+collectionPath: 'users', 
+data: {
+'name': 'Prince', 
+'last_name': 'Hodonou',
+});
+
+//update a document
+db.updateInstance(
+collectionPath: 'users',
+docId:'enbjnsj1n3j39',
+newData: {
+'name': 'King', 
+'last_name': 'George',
+})
+
+//delete a document
+db.deleteInstance(
+collectionPath: 'users', 
+docId: 'enbjnsj1n3j39',
 );
 
-//write one document, auto-generated id
-db.setInstance(
-collectionPath: 'users', 
-data: {'name': 'Prince'},
-);
+//get the Firestore Instance
+Firestore firestoreInstance = db.firestoreInstance;
+//Read Multiple documents from a collection
+List<DocumentSnapshot> users = (await firestoreInstance
+.collection('users')
+.getDocuments()).documents;
 ```
 
 ## Contributing
