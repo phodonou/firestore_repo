@@ -2,6 +2,10 @@
 
 firestore_repo is a dart package that makes it easy to read and write Firestore Documents
 
+## Requirements
+You must first install the cloud_firestore package: 
+https://pub.dev/packages/cloud_firestore
+
 ## Overview
 
 
@@ -50,8 +54,8 @@ docId: 'enbjnsj1n3j39',
 
 //get the Firestore Instance
 Firestore firestoreInstance = db.firestoreInstance;
-//Read Multiple documents from a collection (longer way)
-(await firestoreInstance
+//Read Multiple documents from a collection
+List<DocumentSnapshot> users = (await firestoreInstance
 .collection('users')
 .getDocuments()).documents;
 ```
