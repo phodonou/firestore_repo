@@ -57,7 +57,7 @@ docId: 'enbjnsj1n3j39',
 //get the Firestore Instance
 Firestore firestoreInstance = db.firestoreInstance;
 //Read Multiple documents from a collection
-List<DocumentSnapshot> users = (await firestoreInstance
+(await firestoreInstance
 .collection('users')
 .getDocuments()).documents;
 ```
