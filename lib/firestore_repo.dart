@@ -6,62 +6,69 @@ import 'package:meta/meta.dart';
 class FirestoreRepo {
   final Firestore _firestoreInstance = Firestore.instance;
 
-  Future<List<DocumentSnapshot>> getInstancesAsList({
-    @required String path,
+  Future<List<DocumentSnapshot>> getDocumentsAsList({
+    @required String collectionPath,
   }) async {
     QuerySnapshot future =
-        await _firestoreInstance.collection(path).getDocuments();
+        await _firestoreInstance.collection(collectionPath).getDocuments();
     return future.documents;
   }
 
-  Future<DocumentSnapshot> getInstance({
-    @required String path,
+  Future<DocumentSnapshot> getDocuments({
+    @required String collectionPath,
     @required String docId,
   }) async {
-    DocumentSnapshot docSnap =
-        await _firestoreInstance.collection(path).document(docId).get();
+    DocumentSnapshot docSnap = await _firestoreInstance
+        .collection(collectionPath)
+        .document(docId)
+        .get();
     return docSnap;
   }
 
-  Future setInstance({
-    @required String path,
+  Future setDocument({
+    @required String collectionPath,
     @required String docId,
     @required Map<String, dynamic> data,
   }) async {
-    DocumentReference ref = _firestoreInstance.collection(path).document(docId);
+    DocumentReference ref =
+        _firestoreInstance.collection(collectionPath).document(docId);
     await ref.setData(data, merge: true).catchError((err) {
       print(err);
     });
   }
 
-  Future<String> setInstanceNoID({
-    @required String path,
+  Future<String> setDocumentNoID({
+    @required String collectionPath,
     @required Map<String, dynamic> data,
   }) async {
-    DocumentReference ref = _firestoreInstance.collection(path).document();
+    DocumentReference ref =
+        _firestoreInstance.collection(collectionPath).document();
     await ref.setData(data, merge: true);
     return ref.documentID;
   }
 
-  Future updateInstance({
-    @required String path,
+  Future updateDocument({
+    @required String collectionPath,
     @required String docId,
     @required Map<String, dynamic> data,
   }) async {
     try {
       await _firestoreInstance
-          .collection(path)
+          .collection(collectionPath)
           .document(docId)
           .updateData(data);
     } catch (e) {}
   }
 
-  Future deleteInstance({
-    @required String path,
+  Future deleteDocument({
+    @required String collectionPath,
     @required String docId,
   }) async {
     try {
-      await _firestoreInstance.collection(path).document(docId).delete();
+      await _firestoreInstance
+          .collection(collectionPath)
+          .document(docId)
+          .delete();
     } catch (e) {
       print(e);
     }

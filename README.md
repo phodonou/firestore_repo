@@ -20,7 +20,7 @@ docId: 'enbjnsj1n3j39',
 );
 
 //Read Multiple documents from a collection
-db.getDocumentAsList(collectionPath: 'users');
+db.getDocumentsAsList(collectionPath: 'users');
 
 //write one document
 db.setDocument(
