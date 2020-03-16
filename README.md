@@ -14,23 +14,23 @@ https://pub.dev/packages/cloud_firestore
 FirestoreRepo db = FirestoreRepo();
 
 //Read one document
-db.getInstance(
+db.getDocument(
 collectionPath: 'users', 
 docId: 'enbjnsj1n3j39',
 );
 
 //Read Multiple documents from a collection
-db.getInstanceAsList(collectionPath: 'users');
+db.getDocumentAsList(collectionPath: 'users');
 
 //write one document
-db.setInstance(
+db.setDocument(
 collectionPath: 'users', 
 docId: 'enbjnsj1n3j39', 
 data: {'name': 'Prince',
 });
 
 //write one document, auto-generates id
-db.setInstanceNoID(
+db.setDocumentNoID(
 collectionPath: 'users', 
 data: {
 'name': 'Prince', 
@@ -38,7 +38,7 @@ data: {
 });
 
 //update a document
-db.updateInstance(
+db.updateDocument(
 collectionPath: 'users',
 docId:'enbjnsj1n3j39',
 newData: {
@@ -47,7 +47,7 @@ newData: {
 })
 
 //delete a document
-db.deleteInstance(
+db.deleteDocument(
 collectionPath: 'users', 
 docId: 'enbjnsj1n3j39',
 );
