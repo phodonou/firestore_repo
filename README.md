@@ -26,7 +26,9 @@ db.getDocumentAsList(collectionPath: 'users');
 db.setDocument(
 collectionPath: 'users', 
 docId: 'enbjnsj1n3j39', 
-data: {'name': 'Prince',
+data: {
+'name': 'Prince', 
+'last_name': 'Hodonou',
 });
 
 //write one document, auto-generates id
