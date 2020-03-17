@@ -14,7 +14,7 @@ class FirestoreRepo {
     return future.documents;
   }
 
-  Future<DocumentSnapshot> getDocuments({
+  Future<DocumentSnapshot> getDocument({
     @required String collectionPath,
     @required String docId,
   }) async {
