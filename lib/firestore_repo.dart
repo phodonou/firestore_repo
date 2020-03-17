@@ -6,6 +6,7 @@ import 'package:meta/meta.dart';
 class FirestoreRepo {
   final Firestore _firestoreInstance = Firestore.instance;
 
+  /// Read multiple Documents from a collection
   Future<List<DocumentSnapshot>> getDocumentsAsList({
     @required String collectionPath,
   }) async {
@@ -14,6 +15,7 @@ class FirestoreRepo {
     return future.documents;
   }
 
+  /// Read a single Document
   Future<DocumentSnapshot> getDocument({
     @required String collectionPath,
     @required String docId,
@@ -25,6 +27,7 @@ class FirestoreRepo {
     return docSnap;
   }
 
+  /// Write a single Document
   Future setDocument({
     @required String collectionPath,
     @required String docId,
@@ -37,6 +40,7 @@ class FirestoreRepo {
     });
   }
 
+  /// Write a single Document, auto-generates the Id
   Future<String> setDocumentNoID({
     @required String collectionPath,
     @required Map<String, dynamic> data,
@@ -47,6 +51,7 @@ class FirestoreRepo {
     return ref.documentID;
   }
 
+  /// Update a single Document
   Future updateDocument({
     @required String collectionPath,
     @required String docId,
@@ -60,6 +65,7 @@ class FirestoreRepo {
     } catch (e) {}
   }
 
+  /// Delete a single Document
   Future deleteDocument({
     @required String collectionPath,
     @required String docId,
@@ -74,5 +80,6 @@ class FirestoreRepo {
     }
   }
 
+  /// Get the Firestore Instance
   Firestore get firestoreInstance => _firestoreInstance;
 }

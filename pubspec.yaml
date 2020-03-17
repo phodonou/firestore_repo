@@ -1,8 +1,7 @@
 name: firestore_repo
-description: A new Flutter package project.
+description: A dart package that makes it easy to read and write Firestore Documents
+repository: https://github.com/phodonou/firestore_repo
 version: 0.0.1
-author:
-# homepage:
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
