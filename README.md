@@ -6,6 +6,9 @@ firestore_repo is a dart package that makes it easy to read and write Firestore 
 You must first install the cloud_firestore package: 
 https://pub.dev/packages/cloud_firestore
 
+## Pub Dev
+https://pub.dev/packages/firestore_repo#-readme-tab-
+
 ## Overview
 
 
