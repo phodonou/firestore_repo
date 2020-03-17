@@ -2,6 +2,7 @@ name: firestore_repo
 description: A dart package that makes it easy to read and write Firestore Documents
 repository: https://github.com/phodonou/firestore_repo
 version: 0.0.1
+homepage: https://pub.dev/
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
@@ -10,11 +11,11 @@ dependencies:
   flutter:
     sdk: flutter
   cloud_firestore: ^0.13.4+2
+  meta: ^1.1.8
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
